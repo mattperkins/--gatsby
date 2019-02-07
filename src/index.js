@@ -8,30 +8,28 @@ import avi from './images/favicon.png'
 
 const Header = () => <Container>
 
-<Link to="/" style={{color: 'white', textDecoration: 'none',}}>
-A link</Link></h1>
+  <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>
+A link</Link>
 
-<img src={avi} />
+  <img src={avi} />
 </Container>
 
+const TemplateWrapper = ({ children }) => (
+  <Container>
+    <Helmet title='Blog' meta={[
+      { name: 'description', content: 'Sample' },
+      { name: 'keywords', content: 'sample, something' }]} />
 
+    <Header />
 
-const TemplateWrapper = ({children}) => (
-<Container>
-<Helmet title="Blog" meta={[
-{ name: 'description', content: 'Sample' },
-{ name: 'keywords', content: 'sample, something' },]}/>
+    {children()}
 
-<Header />
-    
-{children()}
-
-</Container>
+  </Container>
 
 )
 
 TemplateWrapper.propTypes = {
-children: PropTypes.func,
+  children: PropTypes.func
 }
 
 export default TemplateWrapper
